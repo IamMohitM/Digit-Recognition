@@ -16,6 +16,7 @@ eggs/
 .eggs/
 lib/
 lib64/
+logs
 parts/
 sdist/
 var/
@@ -132,3 +133,4 @@ dmypy.json
 test*
 
 trained_models/
+model_store/

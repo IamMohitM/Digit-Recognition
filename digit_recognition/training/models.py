@@ -7,13 +7,13 @@ class CNN(torch.nn.Module):
         self.model = self._model_prep()
 
     def _model_prep(self):
-        model = torchvision.models.mobilenet_v3_small(weights=torchvision.models.MobileNet_V3_Small_Weights.IMAGENET1K_V1, pretrained=True, progress=True, )
+        model = torchvision.models.mobilenet_v3_small(pretrained=True, progress=True)
         classification_layer = torch.nn.Sequential(
             torch.nn.Linear(576, out_features=1024),
             torch.nn.Hardswish(),
             torch.nn.Dropout(p=0.5),
             torch.nn.Linear(1024, 10),
-            torch.nn.Softmax()
+            # torch.nn.Softmax()
         )
         model.classifier = classification_layer
 
